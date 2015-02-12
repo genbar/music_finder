@@ -1,0 +1,56 @@
+<!-- Validation failure messages -->
+
+<% if @song_rating.errors.any? %>
+  <% @song_rating.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit Song Rating #<%= @song_rating.id %></h3>
+      </div>
+      <div class="panel-body">
+        <%= form_tag song_rating_url(@song_rating.id), :method => "patch", :class => "form-horizontal" do %>
+          <!-- Label and input for user_id -->
+          <div class="form-group">
+            <label for="user_id" class="col-sm-2 control-label">
+              User
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @song_rating.user_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for song_id -->
+          <div class="form-group">
+            <label for="song_id" class="col-sm-2 control-label">
+              Song
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="song_id" name="song_id" placeholder="Song" class="form-control" value="<%= @song_rating.song_id %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" value="Update Song Rating" class="btn btn-warning">
+              or
+              <%= link_to "Cancel", song_rating_url(@song_rating.id) %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- End responsive panel example -->
