@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get("/artist", {:controller => 'pages', :action => "artist"})
+  get('/song', {:controller => 'pages', :action => "song"})
+  get('/user', {:controller => 'pages', :action => "user"})
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
