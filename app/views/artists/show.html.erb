@@ -1,3 +1,42 @@
+
+<div class="main-image-container">
+  <img class="main-image" src="<%= @artist.image_url %>" alt="">
+</div>
+
+<h1><%= @artist.name %></h1>
+<div class="main-rating">
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star-o"></i>
+</div>
+
+<hr>
+
+<div class="container artist-songs">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <ol>
+        <% @artist.songs.each do |song| %>
+          <li>
+            <span><a href="<%= song_url(song.id) %>"><%= song.name %></a></span>
+            <div class="inline-rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+          </li>
+        <% end %>
+
+      </ol>
+    </div>
+  </div>
+</div>
+
+
 <!-- Responsive panel example-->
 
 <div class="row">
